@@ -277,4 +277,54 @@ Using an API client (like Postman or `curl`) to create orders will trigger live,
     "month": "Oct"
   }
   ```
-The new order will be saved to MongoDB, and the frontend will instantly reflect the updated metrics.
+The new order will be saved to MongoDB, and the frontend will instantly reflect the updated metrics.
+
+---
+
+## 🌐 Production Deployment Guide (Vercel & Render)
+
+Follow these steps to host your application live on the internet.
+
+### 1. Database Setup (MongoDB Atlas)
+Since your local MongoDB Compass database cannot be accessed by external servers like Render, you need a cloud MongoDB database:
+1. Go to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) and sign up for a free account.
+2. Create a new database user (keep the username and password handy).
+3. Under **Network Access**, click **Add IP Address** and select **Allow Access from Anywhere** (adds `0.0.0.0/0` so Render can connect).
+4. Go to **Database** ➔ **Connect** ➔ **Drivers** and copy the Connection String. It will look like this:
+   `mongodb+srv://<username>:<password>@cluster0.xxxx.mongodb.net/shopsphere?retryWrites=true&w=majority`
+
+---
+
+### 2. Backend Deployment (Render)
+Render is a great free hosting platform for Node.js backend services:
+1. Create a free account at [Render](https://render.com/).
+2. Click **New +** ➔ **Web Service**.
+3. Link your GitHub account and import your repository (`shopsphere`).
+4. Set the following configuration values:
+   - **Name**: `shopsphere-backend`
+   - **Root Directory**: `backend`
+   - **Language**: `Node`
+   - **Build Command**: `npm install`
+   - **Start Command**: `node server.js`
+5. Expand **Advanced** and add the following **Environment Variables**:
+   - `MONGO_URI`: *Your MongoDB Atlas Connection String (with password replaced)*
+   - `JWT_SECRET`: *A secure random string (e.g. `my_super_secret_production_key`)*
+6. Click **Deploy Web Service**.
+7. Once deployed, copy your backend URL from the top of the dashboard (e.g., `https://shopsphere-backend.onrender.com`).
+
+---
+
+### 3. Frontend Deployment (Vercel)
+Vercel is the industry standard for hosting React/Vite frontends:
+1. Create a free account at [Vercel](https://vercel.com/).
+2. Click **Add New...** ➔ **Project**.
+3. Import your GitHub repository (`shopsphere`).
+4. Set the following configuration values:
+   - **Root Directory**: Select the **`frontend`** directory (this is critical!).
+   - **Framework Preset**: `Vite` (automatically detected).
+5. Open the **Environment Variables** accordion and add:
+   - **Key**: `VITE_API_URL`
+   - **Value**: *Your deployed Render backend URL from Step 2 (e.g. `https://shopsphere-backend.onrender.com`)*
+6. Click **Deploy**.
+7. Vercel will build your assets and generate a live public URL for your dashboard!
+
