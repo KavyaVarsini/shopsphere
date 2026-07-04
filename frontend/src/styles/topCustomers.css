@@ -1,0 +1,112 @@
+/* Top Customers Component Styles - Royal Dark Theme */
+.top-customers-container {
+  height: 100%;
+}
+
+.customers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.customer-rank-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: rgba(40, 40, 40, 0.6);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.customer-rank-item:hover {
+  background: rgba(50, 50, 50, 0.8);
+  border-color: rgba(212, 175, 55, 0.4);
+  transform: translateX(5px);
+}
+
+.customer-rank-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.rank-badge {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #D4AF37;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  flex-shrink: 0;
+}
+
+.rank-badge-1 {
+  background: linear-gradient(135deg, #D4AF37, #B8860B);
+  color: #1a1a1a;
+  border: none;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.rank-badge-2 {
+  background: linear-gradient(135deg, #C0C0C0, #A0A0A0);
+  color: #1a1a1a;
+  border: none;
+}
+
+.rank-badge-3 {
+  background: linear-gradient(135deg, #CD7F32, #8B4513);
+  color: #1a1a1a;
+  border: none;
+}
+
+.customer-name-text {
+  font-weight: 500;
+  color: #f0f0f0;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.customer-amount-text {
+  font-weight: 600;
+  color: #D4AF37;
+  font-size: 1.125rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.empty-state-container {
+  text-align: center;
+  padding: 2rem 0;
+  background: rgba(40, 40, 40, 0.3);
+  border-radius: 0.5rem;
+  border: 1px dashed rgba(212, 175, 55, 0.2);
+}
+
+.empty-state-icon {
+  width: 3rem;
+  height: 3rem;
+  color: #444;
+  margin: 0 auto 0.75rem;
+  opacity: 0.5;
+}
+
+.empty-state-text {
+  color: #666;
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+/* Crown icon for top customer */
+.crown-icon {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  color: #FFD700;
+  font-size: 1.2rem;
+}
