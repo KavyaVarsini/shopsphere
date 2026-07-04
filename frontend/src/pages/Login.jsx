@@ -37,7 +37,7 @@ const Login = ({ onLogin }) => {
   return (
     <div style={styles.container}>
       <form style={styles.card} onSubmit={handleLogin}>
-        <h2 style={{ textAlign: "center" }}>ShopSphere Admin Login</h2>
+        <h2 style={{ textAlign: "center", color: "#D4AF37" }}>ShopSphere Admin Login</h2>
 
         {error && <p style={{ color: "red" }}>{error}</p>}
 
