@@ -327,4 +327,6 @@ Vercel is the industry standard for hosting React/Vite frontends:
    - **Value**: *Your deployed Render backend URL from Step 2 (e.g. `https://shopsphere-backend.onrender.com`)*
 6. Click **Deploy**.
 7. Vercel will build your assets and generate a live public URL for your dashboard!
-
+
+   VERCEL DEPLOYMENT LINK : https://shopsphere-livid-gamma.vercel.app/
+
